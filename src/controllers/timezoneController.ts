@@ -25,4 +25,13 @@ export class TimezoneController {
 			res.status(500).json({ error: "Internal server error" });
 		}
 	}
+
+	public static getTimeZone(req: Request, res: Response): void {
+		try {
+			const result = TimezoneService.getList();
+			res.json({ result });
+		} catch (error) {
+			res.status(500).json({ error: "Internal server error" });
+		}
+	}
 }
