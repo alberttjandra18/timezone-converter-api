@@ -1,8 +1,13 @@
 import { ConvertOptions } from "../types";
+import moment from "moment-timezone";
 
 export class TimezoneService {
 	private static parseDate(date: Date | string): Date {
 		return date instanceof Date ? date : new Date(date);
+	}
+
+	public static getList(): string[] {
+		return moment.tz.names();
 	}
 
 	public static convert(options: ConvertOptions): string | Date {
